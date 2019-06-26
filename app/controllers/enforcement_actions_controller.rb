@@ -1,0 +1,2 @@
+class EnforcementActionsController < ApplicationController
+end

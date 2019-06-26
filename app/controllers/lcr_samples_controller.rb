@@ -1,0 +1,2 @@
+class LcrSamplesController < ApplicationController
+end

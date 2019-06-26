@@ -1,0 +1,2 @@
+class ViolationEnfAssocsController < ApplicationController
+end

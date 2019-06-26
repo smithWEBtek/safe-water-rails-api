@@ -30,4 +30,4 @@ yarn-debug.log*
 .yarn-integrity
 
 /data
-/lib/data/*
+/lib/seeds/*

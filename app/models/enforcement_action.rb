@@ -1,0 +1,2 @@
+class EnforcementAction < ApplicationRecord
+end

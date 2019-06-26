@@ -1,0 +1,2 @@
+class WaterSystemFacilitiesController < ApplicationController
+end

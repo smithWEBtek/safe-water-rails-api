@@ -1,0 +1,2 @@
+class LcrSampleResult < ApplicationRecord
+end

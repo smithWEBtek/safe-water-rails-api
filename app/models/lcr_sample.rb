@@ -1,0 +1,2 @@
+class LcrSample < ApplicationRecord
+end

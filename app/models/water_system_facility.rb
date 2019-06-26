@@ -1,0 +1,2 @@
+class WaterSystemFacility < ApplicationRecord
+end

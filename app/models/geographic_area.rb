@@ -1,0 +1,2 @@
+class GeographicArea < ApplicationRecord
+end
