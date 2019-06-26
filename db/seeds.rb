@@ -29,43 +29,61 @@ def enforcement_action
   end
 end
 
+def geographic_area
+  csv_text = File.read(Rails.root.join('lib', 'seeds', 'geographic_area.csv'))
+  csv = CSV.parse(csv_text, headers: true, encoding: 'ISO-8859-1')
+  csv.each do |row|
+    a = GeographicArea.new
+    a.pwsid = row[0]
+    a.geo_id = row[1]
+    a.primacy_agency_code = row[2]
+    a.epa_region = row[3]
+    a.pws_activity_code = row[4]
+    a.pws_type_code = row[5]
+    a.tribal_code = row[6]
+    a.state_served = row[7]
+    a.ansi_entity_code = row[8]
+    a.zip_code_served = row[9]
+    a.city_served = row[10]
+    a.area_type_code = row[11]
+    a.county_served = row[12]
+    a.save
+    puts "#{a.id}: geographic_area created ..."
+    if a.id == 1000
+      return
+    end
+  end
+end
+
+def lcr_sample_result
+  csv_text = File.read(Rails.root.join('lib', 'seeds', 'lcr_sample_result.csv'))
+  csv = CSV.parse(csv_text, headers: true, encoding: 'ISO-8859-1')
+  csv.each do |row|
+    a = LcrSampleResult.new
+    a.pwsid = row[0]
+    a.sample_id = row[1]
+    a.primacy_agency_code = row[2]
+    a.epa_region = row[3]
+    a.sar_id = row[4]
+    a.contaminant_code = row[5]
+    a.result_sign_code = row[6]
+    a.sample_measure = row[7]
+    a.unit_of_measure = row[8]
+    a.save
+    puts "#{a.id}: lcr_sample_result created ..."
+    if a.id == 1000
+      return
+    end
+  end
+end
+
 def main
   enforcement_action
+  geographic_area
+  lcr_sample_result
 end
 
 main
-
-  # create_table "geographic_areas", force: :cascade do |t|
-  #   t.string "pwsid"
-  #   t.string "geo_id"
-  #   t.string "primacy_agency_code"
-  #   t.string "epa_region"
-  #   t.string "pws_activity_code"
-  #   t.string "pws_type_code"
-  #   t.string "tribal_code"
-  #   t.string "state_served"
-  #   t.string "ansi_entity_code"
-  #   t.string "zip_code_served"
-  #   t.string "city_served"
-  #   t.string "area_type_code"
-  #   t.string "county_served"
-  #   t.datetime "created_at", null: false
-  #   t.datetime "updated_at", null: false
-  # end
-
-  # create_table "lcr_sample_results", force: :cascade do |t|
-  #   t.string "pwsid"
-  #   t.string "sample_id"
-  #   t.string "primacy_agency_code"
-  #   t.string "epa_region"
-  #   t.string "sar_id"
-  #   t.string "contaminant_code"
-  #   t.string "result_sign_code"
-  #   t.string "sample_measure"
-  #   t.string "unit_of_measure"
-  #   t.datetime "created_at", null: false
-  #   t.datetime "updated_at", null: false
-  # end
 
   # create_table "lcr_samples", force: :cascade do |t|
   #   t.string "pwsid"
