@@ -1,11 +1,11 @@
 
-<h3><%= link_to "enforcement_actions", enforcement_actions_path %></h3>
-<h3><%= link_to "geographic_areas", geographic_areas_path %></h3>
-<h3><%= link_to "lcr_sample_results", lcr_sample_results_path %></h3>
-<h3><%= link_to "lcr_samples", lcr_samples_path %></h3>
-<h3><%= link_to "service_areas", service_areas_path %></h3>
-<h3><%= link_to "treatments", treatments_path %></h3>
-<h3><%= link_to "violation_enf_assocs", violation_enf_assocs_path %></h3>
-<h3><%= link_to "violations", violations_path %></h3>
-<h3><%= link_to "water_system_facilities", water_system_facilities_path %></h3>
-<h3><%= link_to "water_systems", water_systems_path %></h3>
+<h3>rows: <%= EnforcementAction.count %> <%= link_to "enforcement_actions", enforcement_actions_path %></h3>
+<h3>rows: <%= GeographicArea.count %> <%= link_to "geographic_areas", geographic_areas_path %></h3>
+<h3>rows: <%= LcrSampleResult.count %> <%= link_to "lcr_sample_results", lcr_sample_results_path %></h3>
+<h3>rows: <%= LcrSample.count %> <%= link_to "lcr_samples", lcr_samples_path %></h3>
+<h3>rows: <%= ServiceArea.count %> <%= link_to "service_areas", service_areas_path %></h3>
+<h3>rows: <%= Treatment.count %> <%= link_to "treatments", treatments_path %></h3>
+<h3>rows: <%= ViolationEnfAssoc.count %> <%= link_to "violation_enf_assocs", violation_enf_assocs_path %></h3>
+<h3>rows: <%= Violation.count %> <%= link_to "violations", violations_path %></h3>
+<h3>rows: <%= WaterSystemFacility.count %> <%= link_to "water_system_facilities", water_system_facilities_path %></h3>
+<h3>rows: <%= WaterSystem.count %> <%= link_to "water_systems", water_systems_path %></h3>
