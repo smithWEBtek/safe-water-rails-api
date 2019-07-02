@@ -135,8 +135,6 @@ def treatment
   end
 end
 
-
-
 def main
   enforcement_action
   geographic_area

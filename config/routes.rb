@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :lcr_sample_results
   resources :geographic_areas
   resources :enforcement_actions
+  root 'static#index'
 end
