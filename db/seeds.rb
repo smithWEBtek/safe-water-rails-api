@@ -151,133 +151,160 @@ def violation_enf_assoc
   end
 end
 
+def violation
+  csv_text = File.read(Rails.root.join('lib', 'seeds', 'violation.csv'))
+  csv = CSV.parse(csv_text, headers: true, encoding: 'ISO-8859-1')
+  csv.each do |row|
+    a = Violation.new
+    a.pwsid = row[0]
+    a.violation_id = row[1]
+    a.facility_id = row[2]
+    a.population_served_count = row[3]
+    a.npm_candidate = row[4]
+    a.pws_activity_code = row[5]
+    a.pws_deactivation_date = row[6]
+    a.primary_source_code = row[7]
+    a.pop_cat_5_code = row[8]
+    a.primacy_agency_code = row[9]
+    a.epa_region = row[10]
+    a.pws_type_code = row[11]
+    a.violation_code = row[12]
+    a.violation_category_code = row[13]
+    a.is_health_based_ind = row[14]
+    a.contaminant_code = row[15]
+    a.compliance_status_code = row[16]
+    a.viol_measure = row[17]
+    a.unit_of_measure = row[18]
+    a.state_mcl = row[19]
+    a.is_major_viol_ind = row[20]
+    a.severity_ind_cnt = row[0]
+    a.compl_per_begin_date = row[21]
+    a.compl_per_end_date = row[22]
+    a.latest_enforcement_id = row[23]
+    a.rtc_enforcement_id = row[24]
+    a.rtc_date = row[25]
+    a.public_notification_tier = row[26]
+    a.originator_code = row[27]
+    a.sample_result_id = row[28]
+    a.corrective_action_id = row[29]
+    a.rule_code = row[30]
+    a.rule_group_code = row[31]
+    a.rule_family_code = row[32]
+    a.save
+    puts "#{a.id}: violation created ..."
+    if a.id == @row_limit 
+      return
+    end
+  end
+end
+
+def water_system_facility
+  csv_text = File.read(Rails.root.join('lib', 'seeds', 'water_system_facility.csv'))
+  csv = CSV.parse(csv_text, headers: true, encoding: 'ISO-8859-1')
+  csv.each do |row|
+    a = WaterSystemFacility.new
+    a.pwsid = row[0]
+    a.primacy_agency_code = row[1]
+    a.epa_region = row[2]
+    a.facility_id = row[3]
+    a.facility_name = row[4]
+    a.state_facility_id = row[5]
+    a.facility_activity_code = row[6]
+    a.facility_deactivation_date = row[7]
+    a.facility_type_code = row[8]
+    a.submission_status_code = row[9]
+    a.is_source_ind = row[10]
+    a.water_type_code = row[11]
+    a.availability_code = row[12]
+    a.seller_treatment_code = row[13]
+    a.seller_pwsid = row[14]
+    a.seller_pws_name = row[15]
+    a.filtration_status_code = row[16]
+    a.pws_activity_code = row[17]
+    a.pws_deactivation_date = row[18]
+    a.pws_type_code = row[19]
+    a.is_source_treated_ind = row[20]
+    a.save
+    puts "#{a.id}: water_system_facility created ..."
+    if a.id == @row_limit 
+      return
+    end
+  end
+end
+
+def water_system
+  csv_text = File.read(Rails.root.join('lib', 'seeds', 'water_system.csv'))
+  csv = CSV.parse(csv_text, headers: true, encoding: 'ISO-8859-1')
+  csv.each do |row|
+    a = WaterSystem.new
+    a.pwsid = row[0]
+    a.pws_name = row[1]
+    a.npm_candidate = row[2]
+    a.primacy_agency_code = row[3]
+    a.epa_region = row[4]
+    a.season_begin_date = row[5]
+    a.season_end_date = row[6]
+    a.pws_activity_code = row[7]
+    a.pws_deactivation_date = row[8]
+    a.pws_type_code = row[9]
+    a.dbpr_schedule_cat_code = row[10]
+    a.cds_id = row[11]
+    a.gw_sw_code = row[12]
+    a.lt2_schedule_cat_code = row[13]
+    a.owner_type_code = row[14]
+    a.population_served_count = row[15]
+    a.pop_cat_2_code = row[16]
+    a.pop_cat_3_code = row[17]
+    a.pop_cat_4_code = row[18]
+    a.pop_cat_5_code = row[19]
+    a.pop_cat_11_code = row[20]
+    a.primacy_type = row[21]
+    a.primary_source_code = row[22]
+    a.is_grant_eligible_ind = row[23]
+    a.is_wholesaler_ind = row[24]
+    a.is_school_or_daycare_ind = row[25]
+    a.service_connections_count = row[26]
+    a.submission_status_code = row[27]
+    a.org_name = row[28]
+    a.admin_name = row[29]
+    a.email_addr = row[30]
+    a.phone_number = row[31]
+    a.phone_ext_number = row[32]
+    a.fax_number = row[33]
+    a.alt_phone_number = row[34]
+    a.address_line1 = row[35]
+    a.address_line2 = row[36]
+    a.city_name = row[37]
+    a.zip_code = row[38]
+    a.country_code = row[39]
+    a.state_code = row[40]
+    a.source_water_protection_code = row[41]
+    a.source_protection_begin_date = row[42]
+    a.outstanding_performer = row[43]
+    a.outstanding_perform_begin_date = row[44]
+    a.cities_served = row[45]
+    a.counties_served = row[46]
+    a.save
+    puts "#{a.id}: water_system created ..."
+    if a.id == @row_limit 
+      return
+    end
+  end
+end
+
 def main
-  # enforcement_action
-  # geographic_area
-  # lcr_sample_result
-  # lcr_sample
-  # service_area
-  # treatment
+  enforcement_action
+  geographic_area
+  lcr_sample_result
+  lcr_sample
+  service_area
+  treatment
   violation_enf_assoc
+  violation
+  water_system_facility
+  water_system
 end
 
 @row_limit = 100
 
-main
-
-# create_table "violations", force: :cascade do |t|
-#   t.string "pwsid"
-#   t.string "violation_id"
-#   t.string "facility_id"
-#   t.string "population_served_count"
-#   t.string "npm_candidate"
-#   t.string "pws_activity_code"
-#   t.string "pws_deactivation_date"
-#   t.string "primary_source_code"
-#   t.string "pop_cat_5_code"
-#   t.string "primacy_agency_code"
-#   t.string "epa_region"
-#   t.string "pws_type_code"
-#   t.string "violation_code"
-#   t.string "violation_category_code"
-#   t.string "is_health_based_ind"
-#   t.string "contaminant_code"
-#   t.string "compliance_status_code"
-#   t.string "viol_measure"
-#   t.string "unit_of_measure"
-#   t.string "state_mcl"
-#   t.string "is_major_viol_ind"
-#   t.string "severity_ind_cnt"
-#   t.string "compl_per_begin_date"
-#   t.string "compl_per_end_date"
-#   t.string "latest_enforcement_id"
-#   t.string "rtc_enforcement_id"
-#   t.string "rtc_date"
-#   t.string "public_notification_tier"
-#   t.string "originator_code"
-#   t.string "sample_result_id"
-#   t.string "corrective_action_id"
-#   t.string "rule_code"
-#   t.string "rule_group_code"
-#   t.string "rule_family_code"
-#   t.datetime "created_at", null: false
-#   t.datetime "updated_at", null: false
-# end
-
-# create_table "water_system_facilities", force: :cascade do |t|
-#   t.string "pwsid"
-#   t.string "primacy_agency_code"
-#   t.string "epa_region"
-#   t.string "facility_id"
-#   t.string "facility_name"
-#   t.string "state_facility_id"
-#   t.string "facility_activity_code"
-#   t.string "facility_deactivation_date"
-#   t.string "facility_type_code"
-#   t.string "submission_status_code"
-#   t.string "is_source_ind"
-#   t.string "water_type_code"
-#   t.string "availability_code"
-#   t.string "seller_treatment_code"
-#   t.string "seller_pwsid"
-#   t.string "seller_pws_name"
-#   t.string "filtration_status_code"
-#   t.string "pws_activity_code"
-#   t.string "pws_deactivation_date"
-#   t.string "pws_type_code"
-#   t.string "is_source_treated_ind"
-#   t.datetime "created_at", null: false
-#   t.datetime "updated_at", null: false
-# end
-
-# create_table "water_systems", force: :cascade do |t|
-#   t.string "pwsid"
-#   t.string "pws_name"
-#   t.string "npm_candidate"
-#   t.string "primacy_agency_code"
-#   t.string "epa_region"
-#   t.string "season_begin_date"
-#   t.string "season_end_date"
-#   t.string "pws_activity_code"
-#   t.string "pws_deactivation_date"
-#   t.string "pws_type_code"
-#   t.string "dbpr_schedule_cat_code"
-#   t.string "cds_id"
-#   t.string "gw_sw_code"
-#   t.string "lt2_schedule_cat_code"
-#   t.string "owner_type_code"
-#   t.string "population_served_count"
-#   t.string "pop_cat_2_code"
-#   t.string "pop_cat_3_code"
-#   t.string "pop_cat_4_code"
-#   t.string "pop_cat_5_code"
-#   t.string "pop_cat_11_code"
-#   t.string "primacy_type"
-#   t.string "primary_source_code"
-#   t.string "is_grant_eligible_ind"
-#   t.string "is_wholesaler_ind"
-#   t.string "is_school_or_daycare_ind"
-#   t.string "service_connections_count"
-#   t.string "submission_status_code"
-#   t.string "org_name"
-#   t.string "admin_name"
-#   t.string "email_addr"
-#   t.string "phone_number"
-#   t.string "phone_ext_number"
-#   t.string "fax_number"
-#   t.string "alt_phone_number"
-#   t.string "address_line1"
-#   t.string "address_line2"
-#   t.string "city_name"
-#   t.string "zip_code"
-#   t.string "country_code"
-#   t.string "state_code"
-#   t.string "source_water_protection_code"
-#   t.string "source_protection_begin_date"
-#   t.string "outstanding_performer"
-#   t.string "outstanding_perform_begin_date"
-#   t.string "cities_served"
-#   t.string "counties_served"
-#   t.datetime "created_at", null: false
-#   t.datetime "updated_at", null: false
-# end
+main 
