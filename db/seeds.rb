@@ -135,29 +135,35 @@ def treatment
   end
 end
 
+def violation_enf_assoc
+  csv_text = File.read(Rails.root.join('lib', 'seeds', 'violation_enf_assoc.csv'))
+  csv = CSV.parse(csv_text, headers: true, encoding: 'ISO-8859-1')
+  csv.each do |row|
+    a = ViolationEnfAssoc.new
+    a.pwsid = row[0]
+    a.enforcement_id = row[1]
+    a.violation_id = row[2]
+    a.save
+    puts "#{a.id}: violation_enf_assoc created ..."
+    if a.id == @row_limit 
+      return
+    end
+  end
+end
+
 def main
-  enforcement_action
-  geographic_area
-  lcr_sample_result
-  lcr_sample
-  service_area
-  treatment
+  # enforcement_action
+  # geographic_area
+  # lcr_sample_result
+  # lcr_sample
+  # service_area
+  # treatment
+  violation_enf_assoc
 end
 
 @row_limit = 100
 
 main
-
-
-
-
-# create_table "violation_enf_assocs", force: :cascade do |t|
-#   t.string "pwsid"
-#   t.string "enforcement_id"
-#   t.string "violation_id"
-#   t.datetime "created_at", null: false
-#   t.datetime "updated_at", null: false
-# end
 
 # create_table "violations", force: :cascade do |t|
 #   t.string "pwsid"
