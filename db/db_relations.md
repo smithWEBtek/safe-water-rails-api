@@ -1,4 +1,34 @@
 
+
+
+safe-water-rails-api_development=# \d
+                       List of relations
+ Schema |              Name              |   Type   |   Owner   
+--------+--------------------------------+----------+-----------
+ public | ar_internal_metadata           | table    | bradsmith
+ public | enforcement_actions            | table    | bradsmith
+ public | enforcement_actions_id_seq     | sequence | bradsmith
+ public | geographic_areas               | table    | bradsmith
+ public | geographic_areas_id_seq        | sequence | bradsmith
+ public | lcr_sample_results             | table    | bradsmith
+ public | lcr_sample_results_id_seq      | sequence | bradsmith
+ public | lcr_samples                    | table    | bradsmith
+ public | lcr_samples_id_seq             | sequence | bradsmith
+ public | schema_migrations              | table    | bradsmith
+ public | service_areas                  | table    | bradsmith
+ public | service_areas_id_seq           | sequence | bradsmith
+ public | treatments                     | table    | bradsmith
+ public | treatments_id_seq              | sequence | bradsmith
+ public | violation_enf_assocs           | table    | bradsmith
+ public | violation_enf_assocs_id_seq    | sequence | bradsmith
+ public | violations                     | table    | bradsmith
+ public | violations_id_seq              | sequence | bradsmith
+ public | water_system_facilities        | table    | bradsmith
+ public | water_system_facilities_id_seq | sequence | bradsmith
+ public | water_systems                  | table    | bradsmith
+ public | water_systems_id_seq           | sequence | bradsmith
+
+
 enforcement_actions
 pwsid
 enforcement_id
