@@ -71,7 +71,7 @@ def lcr_sample_result
     a.unit_of_measure = row[8]
     a.save
     puts "#{a.id}: lcr_sample_result created ..."
-    if a.id == @row_limit 
+    if a.id == @row_limit
       return
     end
   end
@@ -90,7 +90,7 @@ def lcr_sample
     a.epa_region = row[5]
     a.save
     puts "#{a.id}: lcr_sample created ..."
-    if a.id == @row_limit 
+    if a.id == @row_limit
       return
     end
   end
@@ -110,7 +110,7 @@ def service_area
     a.is_primary_service_area_code = row[6]
     a.save
     puts "#{a.id}: service_area created ..."
-    if a.id == @row_limit 
+    if a.id == @row_limit
       return
     end
   end
@@ -129,7 +129,7 @@ def treatment
     a.treatment_process_code = row[5]
     a.save
     puts "#{a.id}: treatment created ..."
-    if a.id == @row_limit 
+    if a.id == @row_limit
       return
     end
   end
@@ -145,7 +145,7 @@ def violation_enf_assoc
     a.violation_id = row[2]
     a.save
     puts "#{a.id}: violation_enf_assoc created ..."
-    if a.id == @row_limit 
+    if a.id == @row_limit
       return
     end
   end
@@ -192,7 +192,7 @@ def violation
     a.rule_family_code = row[32]
     a.save
     puts "#{a.id}: violation created ..."
-    if a.id == @row_limit 
+    if a.id == @row_limit
       return
     end
   end
@@ -226,7 +226,7 @@ def water_system_facility
     a.is_source_treated_ind = row[20]
     a.save
     puts "#{a.id}: water_system_facility created ..."
-    if a.id == @row_limit 
+    if a.id == @row_limit
       return
     end
   end
@@ -286,7 +286,7 @@ def water_system
     a.counties_served = row[46]
     a.save
     puts "#{a.id}: water_system created ..."
-    if a.id == @row_limit 
+    if a.id == @row_limit
       return
     end
   end
@@ -305,6 +305,6 @@ def main
   water_system
 end
 
-@row_limit = 100
+@row_limit = 20
 
-main 
+main
