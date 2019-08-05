@@ -1,33 +1,21 @@
-
-
-
-safe-water-rails-api_development=# \d
-                       List of relations
- Schema |              Name              |   Type   |   Owner   
+tables:
+ Schema |              Name              |   Type   |   Owner
 --------+--------------------------------+----------+-----------
- public | ar_internal_metadata           | table    | bradsmith
  public | enforcement_actions            | table    | bradsmith
- public | enforcement_actions_id_seq     | sequence | bradsmith
  public | geographic_areas               | table    | bradsmith
- public | geographic_areas_id_seq        | sequence | bradsmith
  public | lcr_sample_results             | table    | bradsmith
- public | lcr_sample_results_id_seq      | sequence | bradsmith
  public | lcr_samples                    | table    | bradsmith
- public | lcr_samples_id_seq             | sequence | bradsmith
- public | schema_migrations              | table    | bradsmith
  public | service_areas                  | table    | bradsmith
- public | service_areas_id_seq           | sequence | bradsmith
  public | treatments                     | table    | bradsmith
- public | treatments_id_seq              | sequence | bradsmith
  public | violation_enf_assocs           | table    | bradsmith
- public | violation_enf_assocs_id_seq    | sequence | bradsmith
  public | violations                     | table    | bradsmith
- public | violations_id_seq              | sequence | bradsmith
  public | water_system_facilities        | table    | bradsmith
- public | water_system_facilities_id_seq | sequence | bradsmith
  public | water_systems                  | table    | bradsmith
- public | water_systems_id_seq           | sequence | bradsmith
 
+
+need to match AR database ids to friendly name ids that are apparently used to reference tables together
+
+these csv files are still a "product" of a database, so they do not represent tha schema that created the database which output them
 
 enforcement_actions
 pwsid
@@ -36,7 +24,6 @@ originator_code
 enforcement_date
 enforcement_action_type_code
 enforcement_comment_text
-
 
 geographic_areas
 pwsid
@@ -126,7 +113,7 @@ is_major_viol_ind
 severity_ind_cnt
 compl_per_begin_date
 compl_per_end_date
-latest_enforcement_id 
+latest_enforcement_id
 rtc_enforcement_id
 rtc_date
 public_notification_tier
